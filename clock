@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>zegar</title>
+    <style>
+        #zegar {
+            font-size: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="zegar">pobieranie</div>
+
+    <script>
+        var czas = document.getElementById('zegar');
+
+        function pokazCzas() {
+            var teraz = new Date();
+            var godzina = teraz.getHours();
+            var minuta = teraz.getMinutes();
+            var sekunda = teraz.getSeconds();
+
+            if (minuta < 10) minuta = "0" + minuta;
+            if (sekunda < 10) sekunda = "0" + sekunda;
+            if (godzina < 10) godzina = "0" + godzina;
+
+            var calyCzas = godzina + ":" + minuta + ":" + sekunda;
+            czas.textContent = calyCzas;
+        }
+
+        setInterval(pokazCzas, 1000);
+        pokazCzas();
+    </script>
+</body>
+</html>
